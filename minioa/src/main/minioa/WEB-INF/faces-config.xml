@@ -141,6 +141,26 @@
 		<managed-bean-class>org.minioa.core.Log</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>Form</managed-bean-name>
+		<managed-bean-class>org.minioa.core.Form</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>FormDao</managed-bean-name>
+		<managed-bean-class>org.minioa.core.FormDao</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>FormField</managed-bean-name>
+		<managed-bean-class>org.minioa.core.FormField</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>FormFieldDao</managed-bean-name>
+		<managed-bean-class>org.minioa.core.FormFieldDao</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
 	<application>
 		<navigation-handler>org.richfaces.ui.application.StateNavigationHandler</navigation-handler>
 		<el-resolver>org.richfaces.el.StateELResolver</el-resolver>

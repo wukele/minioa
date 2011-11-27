@@ -80,7 +80,7 @@ a {
 }
 
 .note {
-	font-family: ¿¬Ìå_gb2312;
+	font-family: æ¥·ä½“_gb2312;
 	color: red;
 }
 
@@ -95,6 +95,10 @@ input[type=password] {
 	border: 1px dotted #D5D8DC;
 	height: 15px;
 	margin: 0 3px 0 3px;
+}
+
+select {
+	margin-left: 4px;
 }
 
 .fieldset {
@@ -653,7 +657,8 @@ input.search_submit {
 }
 
 #rounded-corner tfoot td.rounded-foot-right {
-	background: #ecf8fd url('../images/botright.jpg') right bottom no-repeat;
+	background: #ecf8fd url('../images/botright.jpg') right bottom no-repeat
+		;
 }
 
 #rounded-corner tbody tr:hover td {
@@ -1008,6 +1013,7 @@ div.pagination span.disabled {
 .rich-table-nohover tr:hover td {
 	background: #fff;
 }
+
 .rich-tab-header {
 	background-image: url(../images/menu_bg.gif);
 	border: 1px solid #5FC7F1;
@@ -1199,7 +1205,6 @@ div.pagination span.disabled {
 }
 
 /*end of pic news*/
-
 .datetimeBlue {
 	text-align: left;
 	font-family: Berlin Sans FB, Constantia, Candara;

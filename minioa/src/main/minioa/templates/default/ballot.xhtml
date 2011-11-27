@@ -41,7 +41,7 @@
 								<f:param name="headerId" value="#{item.ID_}" />
 								<f:param name="reload" value="false" />
 							</a4j:commandLink>
-							<a4j:commandLink action="#{BallotMethod.showDialog}" onclick="#{rich:component('mpForConfirm')}.show();hideObject('dataForm:dataTable:#{rowNum}:edit');hideObject('dataForm:dataTable:#{rowNum}:del');">
+							<a4j:commandLink action="#{BallotDao.showDialog}" onclick="#{rich:component('mpForConfirm')}.show();hideObject('dataForm:dataTable:#{rowNum}:edit');hideObject('dataForm:dataTable:#{rowNum}:del');">
 								<h:graphicImage id="del" title="#{Lang.prop[MySession.l]['delete']}" class="imgBtn" url="images/delete.png">
 								</h:graphicImage>
 								<f:param name="id" value="#{item.ID_}" />
@@ -107,7 +107,7 @@
 				<a4j:outputPanel style="width:250px;margin-top:-10px;height:80px;">
 					<h:panelGrid columns="3">
 						<h:outputText value="#{Lang.prop[MySession.l]['deletewarning']}" style="font-size:11pt;" />
-						<a4j:commandLink reRender="msg" action="#{BallotMethod.deleteRecordById}" onclick="#{rich:component('mpForConfirm')}.hide()">
+						<a4j:commandLink reRender="msg" action="#{BallotDao.deleteRecordById}" onclick="#{rich:component('mpForConfirm')}.hide()">
 							<h:outputText class="btn" value="#{Lang.prop[MySession.l]['ok']}" />
 							<f:param name="reload" value="false" />
 						</a4j:commandLink>
