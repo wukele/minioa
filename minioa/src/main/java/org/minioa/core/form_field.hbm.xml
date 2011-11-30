@@ -23,6 +23,9 @@
 		<property name="checkRule" column="checkRule" type="java.lang.String" />
 		<property name="checkText" column="checkText" type="java.lang.String" />
 		<property name="formatString" column="formatString" type="java.lang.String" />
+		<property name="checkType" column="checkType" type="java.lang.String" />
+		<property name="inputType" column="inputType" type="java.lang.String" />
+		<property name="autoIncrease" column="autoIncrease" type="java.lang.String" />
 	</class>
 	<!-- 选择记录总数，便于分页 -->
 	<!-- Select records count, use for paging. -->

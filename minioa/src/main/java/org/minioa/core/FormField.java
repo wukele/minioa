@@ -1,12 +1,17 @@
 package org.minioa.core;
 
 import java.util.List;
+
+import org.hibernate.validator.Email;
+import org.hibernate.validator.Length;
+import org.hibernate.validator.NotEmpty;
 import org.minioa.core.FormFieldDao;
 
 public class FormField {
 	/**
 	 * 作者：daiqianjie 网址：www.minioa.net 创建日期：2011-11-27
 	 */
+	private String aa = "aaaaaaaaaaaaaaaa";
 
 	private Integer ID_, CID_, MID_;
 	private String CDATE, MDATE;
@@ -78,7 +83,6 @@ public class FormField {
 	}
 
 	private Integer formId, fieldWidth;
-	private String fieldName, fieldText, fieldType, dataSource, textItems, checkRule, checkText, formatString;
 
 	public void setFormId(Integer data) {
 		formId = data;
@@ -96,6 +100,10 @@ public class FormField {
 		return fieldWidth;
 	}
 
+	@NotEmpty
+	@Length(min = 2, max = 12, message = "最少2个字符，最大12个字符")
+	private String fieldName;
+
 	public void setFieldName(String data) {
 		fieldName = data;
 	}
@@ -104,6 +112,9 @@ public class FormField {
 		return fieldName;
 	}
 
+	@NotEmpty
+	private String fieldText;
+
 	public void setFieldText(String data) {
 		fieldText = data;
 	}
@@ -111,6 +122,8 @@ public class FormField {
 	public String getFieldText() {
 		return fieldText;
 	}
+
+	private String fieldType, dataSource, textItems, checkRule, checkText, formatString;
 
 	public void setFieldType(String data) {
 		fieldType = data;
@@ -135,7 +148,7 @@ public class FormField {
 	public String getTextItems() {
 		return textItems;
 	}
-	
+
 	public void setCheckRule(String data) {
 		checkRule = data;
 	}
@@ -160,6 +173,36 @@ public class FormField {
 		return formatString;
 	}
 
+	private String checkType;
+
+	public void setCheckType(String data) {
+		checkType = data;
+	}
+
+	public String getCheckType() {
+		return checkType;
+	}
+
+	private String inputType;
+
+	public void setInputType(String data) {
+		inputType = data;
+	}
+
+	public String getInputType() {
+		return inputType;
+	}
+
+	private String autoIncrease;
+
+	public void setAutoIncrease(String data) {
+		autoIncrease = data;
+	}
+
+	public String getAutoIncrease() {
+		return autoIncrease;
+	}
+	
 	private List<Integer> dsList;
 
 	public List<Integer> getDsList() {
@@ -197,6 +240,9 @@ public class FormField {
 		this.checkRule = bean.getCheckRule();
 		this.checkText = bean.getCheckText();
 		this.formatString = bean.getFormatString();
+		this.checkType = bean.getCheckType();
+		this.inputType = bean.getInputType();
+		this.autoIncrease = bean.getAutoIncrease();
 		return init;
 	}
 

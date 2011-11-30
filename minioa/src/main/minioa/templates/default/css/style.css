@@ -86,7 +86,7 @@ a {
 
 input[type=text] {
 	border: 1px dotted #D5D8DC;
-	height: 15px;
+	height: 18px;
 	margin: 0 3px 0 3px;
 	font-size: 10pt;
 }
@@ -154,7 +154,7 @@ a.forgot_pass {
 	float: right;
 	color: #256c89;
 	text-decoration: none;
-	background: url(../images/help.png) no-repeat left;
+	background: url(../images/forgotpassword.png) no-repeat left;
 	padding: 0 0 0 18px;
 	display: block;
 	margin: 15px 20px 0 0;

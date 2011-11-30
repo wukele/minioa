@@ -35,5 +35,7 @@
 		<mapping resource="org/minioa/core/log.hbm.xml" />
 		<mapping resource="org/minioa/core/form.hbm.xml" />
 		<mapping resource="org/minioa/core/form_field.hbm.xml" />
+		
+		<mapping resource="org/minioa/core/prop.hbm.xml" />
 	</session-factory>
 </hibernate-configuration>

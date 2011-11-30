@@ -1,4 +1,4 @@
-﻿package org.minioa.core;
+package org.minioa.core;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,7 +8,11 @@ import java.util.Map;
 
 import javax.faces.model.SelectItem;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.jboss.seam.ui.HibernateEntityLoader;
 import org.jivesoftware.smack.ConnectionConfiguration;
 import org.jivesoftware.smack.XMPPConnection;
@@ -175,6 +179,27 @@ public class Application {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
+	}
+
+	private Map<String, String> prop;
+
+	public void setProp(Map<String, String> data) {
+		prop = data;
+	}
+
+	public Map<String, String> getProp() {
+		if (prop == null){
+			prop = new HashMap<String, String>();
+			Criteria criteria = new HibernateEntityLoader().getSession().createCriteria(Prop.class);
+			criteria.addOrder(Order.desc("propName"));
+			Iterator<?> it = criteria.list().iterator();
+			while (it.hasNext()) {
+				Prop bean = (Prop) it.next();
+				prop.put(bean.getPropName(), bean.getPropValue());
+			}
+			it = null;
+		}
+		return prop;
 	}
 
 	public Application() {

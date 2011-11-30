@@ -5,11 +5,11 @@
 <title><h:outputText value="#{Lang.prop[MySession.l]['webadmin']}" /></title>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/niceforms-default.css" />
-<link rel="stylesheet" type="text/css" href="css/firefox.css"/>
-<script type="text/javascript" src="js/ddaccordion.js"/>
-<script type="text/javascript" src="js/ddaccordion_init.js"/>
-<script type="text/javascript" src="js/main.js"/>
-<script language="javascript" type="text/javascript" src="js/niceforms.js"/>
+<link rel="stylesheet" type="text/css" href="css/firefox.css" />
+<script type="text/javascript" src="js/ddaccordion.js" />
+<script type="text/javascript" src="js/ddaccordion_init.js" />
+<script type="text/javascript" src="js/main.js" />
+<script language="javascript" type="text/javascript" src="js/niceforms.js" />
 </head>
 <body onkeydown="if(event.keyCode==13){#{rich:component('mpForMsg')}.hide()}">
 <h:outputText value="#{Application.init} #{MySession.templateName}" style="display:none;" />
@@ -21,30 +21,31 @@
 </div>
 <div class="login_form">
 <h3><h:outputText value="#{Lang.prop[MySession.l]['userloginform']}" /></h3>
-<a href="#" class="forgot_pass"><h:outputText value="#{Lang.prop[MySession.l]['forgotpassword']}" /></a>
-<a4j:form id="loginForm" styleClass="niceform" rendered="#{!(MySession.isLogin=='true')}" onkeydown="if(event.keyCode==13){A4J.AJAX.Submit('loginForm',event,{'similarityGroupingId':'loginForm:submit','parameters':{'loginForm:submit':'loginForm:submit'} } );return false;}">
-<fieldset>
-<dl>
-	<dt><h:outputText value="#{Lang.prop[MySession.l]['username']}" />:</dt>
-	<dd><h:inputText id="username" value="#{User.prop['userName']}" style="width:160px;" /></dd>
-</dl>
-<dl>
-	<dt><h:outputText value="#{Lang.prop[MySession.l]['password']}" />:</dt>
-	<dd><h:inputSecret id="password" value="#{User.prop['password']}" style="width:160px;"/></dd>
-</dl>
-<dl class="submit">
-	<a4j:commandLink id="submit" action="#{User.login}" reRender="msg">
-		<h:outputText class="btn" value="#{Lang.prop[MySession.l]['login']}" />
-	</a4j:commandLink>
-</dl>
-</fieldset>
-</a4j:form>
-<a4j:form styleClass="niceform" rendered="#{MySession.isLogin=='true'}">
-<script type="text/javascript">
-	location.href="index.jsf";
-</script>
-</a4j:form>
-</div>
+<a href="#" class="forgot_pass"><h:outputText value="#{Lang.prop[MySession.l]['forgotpassword']}" /></a> <a4j:form id="loginForm" styleClass="niceform" rendered="#{!(MySession.isLogin=='true')}" onkeydown="if(event.keyCode==13){A4J.AJAX.Submit('loginForm',event,{'similarityGroupingId':'loginForm:submit','parameters':{'loginForm:submit':'loginForm:submit'} } );return false;}">
+	<fieldset>
+	<dl>
+		<dt><h:outputText value="#{Lang.prop[MySession.l]['username']}" />:</dt>
+		<dd><h:inputText id="username" value="#{User.prop['userName']}" style="width:160px;" /></dd>
+	</dl>
+	<dl>
+		<dt><h:outputText value="#{Lang.prop[MySession.l]['password']}" />:</dt>
+		<dd><h:inputSecret id="password" value="#{User.prop['password']}" style="width:160px;" /></dd>
+	</dl>
+	<a4j:region rendered="#{Application.prop['validateCode']=='Y'}" >
+	<dl>
+		<dt><h:outputText value="#{Lang.prop[MySession.l]['validateCode']}" />:</dt>
+		<dd><h:inputSecret id="validateCode" value="#{User.prop['validateCode']}" style="width:60px;" /> <h:graphicImage id="vCode" value="../../validatecode.jsp" onclick="javscript:$('loginForm:vCode').src='../../validatecode.jsp?'+Math.random();" style="margin:1px 0 0 3px;"/></dd>
+	</dl>
+	</a4j:region>
+	<dl class="submit">
+		<a4j:commandLink id="submit" action="#{User.login}" reRender="msg">
+			<h:outputText class="btn" value="#{Lang.prop[MySession.l]['login']}" />
+		</a4j:commandLink>
+	</dl>
+	</fieldset>
+</a4j:form> <a4j:form styleClass="niceform" rendered="#{MySession.isLogin=='true'}">
+	<script type="text/javascript"> location.href="index.jsf";</script>
+</a4j:form></div>
 <div class="footer_login">
 <div class="left_footer_login">MiniOA | Powered by <a href="http://www.minioa.net/">MiniOA.net</a> | This Css Template Designed by INDEZINER</div>
 </div>

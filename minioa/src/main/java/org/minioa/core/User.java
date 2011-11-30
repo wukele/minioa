@@ -1,4 +1,4 @@
-﻿package org.minioa.core;
+package org.minioa.core;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -157,7 +157,7 @@ public class User {
 			String sql = getSession().getNamedQuery("core.user.records").getQueryString();
 			String where = " where 1=1";
 			String other = " order by convert(ta.displayName using gbk) asc";
-			
+
 			if (!key.equals(""))
 				where += " and ta.userName like :key";
 			if (!key2.equals(""))
@@ -165,7 +165,7 @@ public class User {
 			Query query = getSession().createSQLQuery(sql + where + other);
 			query.setMaxResults(mySession.getPageSize());
 			query.setFirstResult((Integer.valueOf(mySession.getScrollerPage()) - 1) * mySession.getPageSize());
-			
+
 			if (!key.equals(""))
 				query.setParameter("key", "%" + key + "%");
 			if (!key2.equals(""))
@@ -556,6 +556,21 @@ public class User {
 		try {
 			String name = prop.get("userName");
 			String pwd = prop.get("password");
+
+			Application app = (Application) FacesContext.getCurrentInstance().getExternalContext().getApplicationMap().get("Application");
+			if ("Y".equals(app.getProp().get("validateCode"))) {
+				String validateCode = prop.get("validateCode");
+				String key = (String) (((HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true)).getAttribute("key"));
+				System.out.println(key);
+				if ("".equals(validateCode)) {
+					getMySession().setMsg("请输入验证码！", Integer.valueOf(2));
+					return;
+				}
+				if (!key.equals(validateCode)) {
+					getMySession().setMsg("验证码输入错误！", Integer.valueOf(2));
+					return;
+				}
+			}
 
 			if ("".equals(name) || "".equals(pwd)) {
 				String msg = getLang().getProp().get(getMySession().getL()).get("usernameorpasswordnoempty");
